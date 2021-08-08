@@ -35,11 +35,12 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> findMovies(String name) {
+        String nameInLower = name.toLowerCase();
         List<Movie> moviesFound = new ArrayList<>();
         Stream<Movie> streams = movieRepository.findAll().stream();
         streams.forEach(movie -> {
-            if(movie.getMovieName().contains(name) || movie.getMovieDescription().contains(name)
-                    || movie.getActors().toString().contains(name)) {
+            if(movie.getMovieName().toLowerCase().contains(nameInLower) || movie.getMovieDescription().toLowerCase().contains(nameInLower)
+                    || movie.getActors().toString().toLowerCase().contains(nameInLower)) {
                 moviesFound.add(movie);
             }
         });
