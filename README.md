@@ -12,4 +12,4 @@ This is a simple Movies database application written using SpringBoot and MongDB
 * Add a movie
 * List all available movies 
 * Get movie details based on ID 
-* Find a movie by name (TBD) 
+* Search for a movie 
