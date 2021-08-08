@@ -35,6 +35,11 @@ public class MovieController {
         return movieService.getMovie(id);
     }
 
+    @GetMapping("/movie/search")
+    public List<Movie> findMovies(@RequestParam(required = false) String query) {
+        return movieService.findMovies(query);
+    }
+
     @GetMapping("/movie/all")
     public List<Movie> getAllMovies() {
         return movieService.getMovies();
