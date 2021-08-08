@@ -16,6 +16,11 @@ public class MovieServiceImpl implements MovieService {
     @Autowired
     MovieRepository movieRepository;
 
+    /**
+     * Ideally this method should be used by administrators
+     * and not open for clients
+     * @param movie
+     */
     @Override
     public void addMovie(Movie movie) {
         System.out.println(movie.getMovieName());
@@ -28,11 +33,23 @@ public class MovieServiceImpl implements MovieService {
         return movieRepository.findAll();
     }
 
+    /**
+     * Get a movie based on the id
+     * This feature will be rarely used.
+     * Use search instead
+     * @param id
+     * @return
+     */
     @Override
     public Movie getMovie(String id) {
         return movieRepository.findAll().stream().filter(movie -> movie.getId().equals(id)).findFirst().get();
     }
 
+    /**
+     * Search for a movie based on the query paramater passed
+     * @param name Search String
+     * @return
+     */
     @Override
     public List<Movie> findMovies(String name) {
         String nameInLower = name.toLowerCase();
