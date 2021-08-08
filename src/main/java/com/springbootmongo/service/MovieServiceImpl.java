@@ -23,8 +23,6 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public void addMovie(Movie movie) {
-        System.out.println(movie.getMovieName());
-        System.out.println(movie.getReleaseYr());
         movieRepository.save(movie);
     }
 

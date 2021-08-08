@@ -29,6 +29,22 @@ public class Movie {
         this.movieDescription = movieDescription;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getMovieDirector() {
+        return movieDirector;
+    }
+
+    public void setMovieDirector(String movieDirector) {
+        this.movieDirector = movieDirector;
+    }
+
     public int getReleaseYr() {
         return releaseYr;
     }
@@ -49,6 +65,8 @@ public class Movie {
     private String id;
     private String movieName;
     private String movieDescription;
+    private String movieDirector;
+    private String language;
     private int releaseYr;
     List<String> actors;
 
