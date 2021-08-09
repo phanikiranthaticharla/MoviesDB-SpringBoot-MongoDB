@@ -3,7 +3,7 @@ This is a simple Movies database application written using SpringBoot and MongDB
 
 [REST API Documentation ](https://documenter.getpostman.com/view/4456235/TzskEiFE)
 
-### Required
+### Prerequisites
 * MongoDB server 
 * Java version 8 
 * Intellij (Optional) 
