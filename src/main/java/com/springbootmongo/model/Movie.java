@@ -45,12 +45,12 @@ public class Movie {
         this.movieDirector = movieDirector;
     }
 
-    public int getReleaseYr() {
-        return releaseYr;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setReleaseYr(int releaseYr) {
-        this.releaseYr = releaseYr;
+    public void setReleaseYr(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public List<String> getActors() {
@@ -67,7 +67,7 @@ public class Movie {
     private String movieDescription;
     private String movieDirector;
     private String language;
-    private int releaseYr;
+    private String releaseDate;
     List<String> actors;
 
 }
