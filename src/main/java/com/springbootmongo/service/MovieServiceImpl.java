@@ -45,17 +45,18 @@ public class MovieServiceImpl implements MovieService {
 
     /**
      * Search for a movie based on the query paramater passed
-     * @param name Search String
+     * @param queryStr Search String
      * @return
      */
     @Override
-    public List<Movie> findMovies(String name) {
-        String nameInLower = name.toLowerCase();
+    public List<Movie> findMovies(String queryStr) {
+        String queryInLower = queryStr.toLowerCase();
         List<Movie> moviesFound = new ArrayList<>();
         Stream<Movie> streams = movieRepository.findAll().stream();
         streams.forEach(movie -> {
-            if(movie.getMovieName().toLowerCase().contains(nameInLower) || movie.getMovieDescription().toLowerCase().contains(nameInLower)
-                    || movie.getActors().toString().toLowerCase().contains(nameInLower)) {
+            if(movie.getMovieName().toLowerCase().contains(queryInLower) || movie.getMovieDescription().toLowerCase().contains(queryInLower)
+                    || movie.getActors().toString().toLowerCase().contains(queryInLower)
+            || movie.getLanguage().toLowerCase().equals(queryInLower)) {
                 moviesFound.add(movie);
             }
         });

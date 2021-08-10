@@ -60,6 +60,7 @@ public class MovieController {
      * @return
      */
     @GetMapping("/movie/search")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Movie> findMovies(@RequestParam(required = false) String query) {
         return movieService.findMovies(query);
     }
@@ -69,6 +70,7 @@ public class MovieController {
      * @return
      */
     @GetMapping("/movie/all")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Movie> getAllMovies() {
         return movieService.getMovies();
     }
