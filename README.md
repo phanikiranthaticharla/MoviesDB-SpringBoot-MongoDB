@@ -1,6 +1,9 @@
 # MoviesDB-SpringBoot-MongoDB
 This is a simple Movies database application written using SpringBoot and MongDB. 
 
+### Update 
+UI for this backend application is written using Angular2 and can be found [here](https://github.com/phanikiranthaticharla/moviesdb-ui-angular2/)
+
 [REST API Documentation ](https://documenter.getpostman.com/view/4456235/TzskEiFE)
 
 ### Prerequisites
