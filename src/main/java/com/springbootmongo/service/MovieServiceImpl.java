@@ -3,6 +3,8 @@ package com.springbootmongo.service;
 import com.springbootmongo.model.Movie;
 import com.springbootmongo.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Service
+@CacheConfig(cacheNames = "Movie")
 public class MovieServiceImpl implements MovieService {
 
     @Autowired
@@ -49,6 +52,7 @@ public class MovieServiceImpl implements MovieService {
      * @return
      */
     @Override
+    @Cacheable(key = "#queryStr")
     public List<Movie> findMovies(String queryStr) {
         String queryInLower = queryStr.toLowerCase();
         List<Movie> moviesFound = new ArrayList<>();
