@@ -5,7 +5,8 @@ This is a simple Movies database application written using SpringBoot and MongDB
 UI for this backend application is written using Angular2 and can be found [here](https://github.com/phanikiranthaticharla/moviesdb-ui-angular2/)
 This is a basic UI with search functionality based on movie name, actors, description or language. 
 
-![movies_db](https://user-images.githubusercontent.com/8190677/128804176-9e62e5f9-c947-4f86-8dba-25f867b3352a.png)
+![movies_db_new](https://user-images.githubusercontent.com/8190677/128954429-c6f66ca4-8ddf-48a1-8a30-9f29ad5195b0.png)
+
 
 
 [REST API Documentation ](https://documenter.getpostman.com/view/4456235/TzskEiFE)
