@@ -21,6 +21,7 @@ This is a basic UI with search functionality based on movie name, actors, descri
 * List all available movies 
 * Get movie details based on ID 
 * Search for a movie 
+* Caching the recently searched movies using **redis cache**
 
 ### Steps
 
