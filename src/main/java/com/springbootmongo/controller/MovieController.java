@@ -65,6 +65,11 @@ public class MovieController {
         return movieService.findMovies(query);
     }
 
+    @GetMapping("/movies")
+    public List<Movie> findMoviesFromDB(@RequestParam(required = false) String query) {
+        return movieService.findByMongoTemplate(query);
+    }
+
     /**
      * Endpoint to list all movies present in the database
      * @return

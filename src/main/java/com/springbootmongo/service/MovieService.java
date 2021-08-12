@@ -9,4 +9,5 @@ public interface MovieService {
     public List<Movie> getMovies();
     public Movie getMovie(String id);
     public List<Movie> findMovies(String name);
+    public List<Movie> findByMongoTemplate(String name);
 }

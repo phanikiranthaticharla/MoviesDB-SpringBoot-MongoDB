@@ -5,8 +5,13 @@ import com.springbootmongo.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.TextCriteria;
+import org.springframework.data.mongodb.core.query.TextQuery;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,9 @@ public class MovieServiceImpl implements MovieService {
 
     @Autowired
     MovieRepository movieRepository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     /**
      * Ideally this method should be used by administrators
@@ -51,6 +59,7 @@ public class MovieServiceImpl implements MovieService {
      * @param queryStr Search String
      * @return
      */
+    @Deprecated
     @Override
     @Cacheable(key = "#queryStr")
     public List<Movie> findMovies(String queryStr) {
@@ -65,5 +74,17 @@ public class MovieServiceImpl implements MovieService {
             }
         });
         return moviesFound;
+    }
+
+    /**
+     * The search is done on the mongodb side and we get the searched results directly
+     * @param queryStr
+     * @return
+     */
+    public List<Movie> findByMongoTemplate(String queryStr) {
+        TextCriteria textCriteria = TextCriteria.forDefaultLanguage().matchingAny(queryStr);
+        Query query = TextQuery.queryText(textCriteria).sortByScore();
+        List<Movie> movies = mongoTemplate.find(query, Movie.class);
+        return movies;
     }
 }
