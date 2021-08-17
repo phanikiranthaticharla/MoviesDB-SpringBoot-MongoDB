@@ -17,9 +17,8 @@ This is a basic UI with search functionality based on movie name, actors, descri
 * [Intellij IDE](https://www.jetbrains.com/idea/) (Optional)
 
 ### Features 
-* Add a movie
+* Add a movie and get movie details based on ID (This feature should only be allowed for administrators) 
 * List all available movies 
-* Get movie details based on ID 
 * Search for a movie 
 * Caching the recently searched movies using **redis cache**
 
